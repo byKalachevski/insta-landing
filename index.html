@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"> <!-- Устанавливает кодировку UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Адаптивная ширина для мобилок -->
+    <title>Instavasika_course</title> <!-- Заголовок страницы во вкладке браузера -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Подключение внешнего CSS -->
+</head>
+<body>
+
+<!-- === Секция: Промо с изображением и текстом === -->
+<section class="promo">
+  <div class="promo__content">
+    
+    <!-- Блок с изображением -->
+    <div class="promo__image">
+      <img src="img/bg/bg.png" alt="девушка" />
+    </div>
+
+    <!-- Блок с текстом -->
+    <div class="promo__text">
+      <h1 class="title">Меняй тело — меняй жизнь</h1> <!-- Главный заголовок -->
+      <h2 class="title_copyright">
+        Авторская комплексная методика восстановления гормонального фона, снижения веса, уменьшения отёчности и устранения целлюлита.
+      </h2> <!-- Подзаголовок -->
+      <div class="frame"></div> <!-- Дополнительный декоративный элемент (если есть стили) -->
+      <h2 class="title_result">Минус 4 кг уже<br>за первую<br>неделю</h2> <!-- Акцент -->
+      <h2 class="title_end">Мощная программа, после которой вес не возвращается!</h2> <!-- Заключение -->
+    </div>
+
+  </div>
+</section>
+
+<!-- === Секция: Кнопка + модальное окно записи === -->
+<section class="intensiv">
+
+  <!-- Кнопка для открытия формы -->
+  <button class="promo_btn" onclick="openModal()">Записаться на интенсив</button>
+
+  <!-- Модальное окно -->
+  <div id="formModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span> <!-- Кнопка закрытия -->
+      <h2>Запись на интенсив</h2>
+        <form action="https://formsubmit.co/your@email.com" method="POST">
+            <!-- Отключить капчу FormSubmit -->
+            <input type="hidden" name="_captcha" value="false">
+            <!-- Куда перенаправлять после отправки -->
+            <input type="hidden" name="_next" value="https://example.com/thankyou.html">
+
+            <label for="name">Имя:</label>
+            <input type="text" name="Имя" id="name" placeholder="Ваше имя" required>
+
+            <label for="instagram">Instagram:</label>
+            <input type="text" name="Instagram" id="instagram" placeholder="@your_username">
+
+            <label for="telegram">Telegram:</label>
+            <input type="text" name="Telegram" id="telegram" placeholder="@your_username">
+
+            <label for="whatsapp">WhatsApp:</label>
+            <input type="text" name="WhatsApp" id="whatsapp" placeholder="+7 999 000 00 00">
+
+            <button type="submit" class="promo_btn">Отправить</button>
+        </form>
+    </div>
+ </div>
+
+  <!-- Блок с надписью под формой -->
+  <div class="place_text">*Осталось 8 мест</div>
+
+  <!-- Кнопка прокрутки вниз -->
+  <div class="more">
+    <div class="more-text">Узнать больше об интенсиве</div>
+    <img src="icons/-1.png.webp" alt="down" class="more_img">
+  </div>
+</section>
+
+<!-- === Секция: Уникальность и мотивация === -->
+<section class="discription" style="margin-top: -100px;">
+  <h2 class="title_description">
+    Уникальная программа снижения веса, созданная для тех,<br> кто действительно готов изменить своё тело и отношение к себе.
+  </h2>
+  <h2 class="title_description_big">Настало время перемен!</h2>
+  <h2 class="title_worthy">
+    Ты достойна шикарной фигуры,<br> плоского животика и стройных ног
+    <div class="br"></div> <!-- Возможный перенос строки -->
+    Если ты ждала знак — это точно он!
+  </h2>
+</section>
+
+<!-- === Секция: Преимущества — иконка + текст === -->
+<section class="advantages" style="margin-top: 330px;">
+  <div class="adv-card">
+    <img src="icons/instavasika.my.canva.site_instavasika (2).png" alt="1">
+    <h2>Минус 4 кг уже за первую неделю<br>Результат заметен с первых дней — вес уходит и это вдохновляет!</h2>
+  </div>
+  <div class="adv-card">
+    <img src="icons/instavasika.my.canva.site_instavasika (2).png" alt="2">
+    <h2>Сброшенный вес не возвращается — мы работаем с причиной, а не просто ограничиваем еду.</h2>
+  </div>
+  <div class="adv-card">
+    <img src="icons/instavasika.my.canva.site_instavasika (2).png" alt="3">
+    <h2>Прощай, вечные диеты — больше не нужно считать калории и сидеть над меню — всё уже готово.</h2>
+  </div>
+  <div class="adv-card">
+    <img src="icons/instavasika.my.canva.site_instavasika (2).png" alt="4">
+    <h2>Готовое меню на каждый день — рационы составлены профессионально, ингредиенты рассчитаны до грамма.</h2>
+  </div>
+  <div class="adv-card">
+    <img src="icons/instavasika.my.canva.site_instavasika (2).png" alt="5">
+    <h2>Решим проблему целлюлита и отёков — специальный подход к женскому телу, который работает мягко и эффективно.</h2>
+  </div>
+  <div class="adv-card">
+    <img src="icons/instavasika.my.canva.site_instavasika (2).png" alt="6">
+    <h2>Поддержка 24/7 в чате — я рядом, отвечаю на все вопросы и веду к результату.</h2>
+  </div>
+  <div class="adv-card">
+    <img src="icons/instavasika.my.canva.site_instavasika (2).png" alt="7">
+    <h2>Ты не одна — ты в команде. Вдохновляющее сообщество девушек, которые идут к цели вместе с тобой.</h2>
+  </div>
+  <div class="adv-card">
+    <img src="icons/instavasika.my.canva.site_instavasika (2).png" alt="8">
+    <h2>Доступ навсегда — программа и чат останутся с тобой, возвращайся и повторяй, когда захочешь.</h2>
+  </div>
+</section>
+
+<!-- === Секция: Что входит в программу (в виде карточек) === -->
+<section class="included">
+  <h2 class="title_inc">В программу входит</h2>
+
+  <div class="inc-card">
+    <img src="icons/1.png" alt="1">
+    <div>
+      <h3>Умное меню</h3>
+      <p>Индивидуально подобраны активные ингредиенты — никакой математики, всё уже рассчитано за тебя.</p>
+    </div>
+  </div>
+
+  <div class="inc-card">
+    <img src="icons/2.png" alt="2">
+    <div>
+      <h3>Бессрочный доступ к чату поддержки</h3>
+      <p>Ты всегда сможешь обратиться ко мне и другим участницам за советом, поддержкой или мотивацией. Чат 24/7.</p>
+    </div>
+  </div>
+
+  <div class="inc-card">
+    <img src="icons/3.png" alt="3">
+    <div>
+      <h3>Гибкий список замены продуктов</h3>
+      <p>Любой ингредиент можно заменить. Меню адаптируется под вкус, бюджет или делается премиум.</p>
+    </div>
+  </div>
+
+  <div class="inc-card">
+    <img src="icons/4.png" alt="4">
+    <div>
+      <h3>Доступ навсегда</h3>
+      <p>Программа и чат останутся с тобой — возвращайся и повторяй, когда захочешь.</p>
+    </div>
+  </div>
+
+  <div class="inc-card">
+    <img src="icons/5.png" alt="5">
+    <div>
+      <h3>Подробный гайд</h3>
+      <p>Реальные знания: как навсегда избавиться от лишнего веса и выстроить комфортную систему питания.</p>
+    </div>
+  </div>
+</section>
+
+<!-- === JS: Открытие и закрытие модального окна === -->
+<script>
+function openModal() {
+  document.getElementById("formModal").style.display = "flex";
+}
+function closeModal() {
+  document.getElementById("formModal").style.display = "none";
+}
+window.onclick = function(event) {
+  const modal = document.getElementById("formModal");
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+</script>
+
+
+</body>
+</html>
