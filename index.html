@@ -8,6 +8,19 @@
 </head>
 <body>
 
+  <!-- Скрытый iframe, в который будет сабмититься форма -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+  
+  <!-- Блок благодарности (по умолчанию скрыт) -->
+  <div id="thankyou" style="display:none; text-align:center; padding:50px;">
+    <h2>Спасибо за вашу заявку!</h2>
+    <p>Скоро с вами свяжусь для уточнения деталей.</p>
+  </div>
+
+  <!-- Основное содержимое лендинга (скрывается при #thankyou) -->
+  <div id="mainContent">
+
+
 <!-- === Секция: Промо с изображением и текстом === -->
 <section class="promo">
   <div class="promo__content">
@@ -35,35 +48,77 @@
 <section class="intensiv">
 
   <!-- Кнопка для открытия формы -->
-  <button class="promo_btn" onclick="openModal()">Записаться на интенсив</button>
+<button class="promo_btn" onclick="openModal()">Записаться на интенсив</button>
 
-  <!-- Модальное окно -->
-  <div id="formModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span> <!-- Кнопка закрытия -->
-      <h2>Запись на интенсив</h2>
-        <form action="https://formsubmit.co/kalachevskai@gmail.com" method="POST">
-            <!-- Отключить капчу FormSubmit -->
-            <input type="hidden" name="_captcha" value="false">
-            <!-- Куда перенаправлять после отправки -->
-           <input type="hidden" name="_next" value="https://bykalachevski.github.io/insta-landing/">
+<!-- Модальное окно -->
+<div id="formModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Запись на интенсив</h2>
 
-            <label for="name">Имя:</label>
-            <input type="text" name="Имя" id="name" placeholder="Ваше имя" required>
+    <!-- Наша новая форма на Google Apps Script -->
+    <form
+        id="appForm"
+        action="https://script.google.com/macros/s/AKfycbzkqBVWsOvOA0hW7JDFnmNM4LfcBCr1PMXbifq3wvEcw3j0hjhQIrBsikb6tQB__Ui1ZA/exec"
+        method="post"
+        target="hidden_iframe"
+    >
+      <!-- Обязательное поле email, чтобы вы получили reply-to -->
+      <label for="email">Ваш email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="you@example.com"
+      >
 
-            <label for="instagram">Instagram:</label>
-            <input type="text" name="Instagram" id="instagram" placeholder="@your_username">
+      <label for="name">Имя:</label>
+      <input
+        type="text"
+        id="name"
+        name="Имя"
+        placeholder="Ваше имя"
+        required
+      >
 
-            <label for="telegram">Telegram:</label>
-            <input type="text" name="Telegram" id="telegram" placeholder="@your_username">
+      <label for="instagram">Instagram:</label>
+      <input
+        type="text"
+        id="instagram"
+        name="Instagram"
+        placeholder="@your_username"
+      >
 
-            <label for="whatsapp">WhatsApp:</label>
-            <input type="text" name="WhatsApp" id="whatsapp" placeholder="+7 999 000 00 00">
+      <label for="telegram">Telegram:</label>
+      <input
+        type="text"
+        id="telegram"
+        name="Telegram"
+        placeholder="@your_username"
+      >
 
-            <button type="submit" class="promo_btn">Отправить</button>
-        </form>
-    </div>
- </div>
+      <label for="whatsapp">WhatsApp:</label>
+      <input
+        type="text"
+        id="whatsapp"
+        name="WhatsApp"
+        placeholder="+7 999 000 00 00"
+      >
+
+      <button type="submit" class="promo_btn">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<!-- Секция: Модал с благодарностью -->
+<div id="thankyouModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeThankyou()">&times;</span>
+    <h2>Спасибо за вашу заявку!</h2>
+    <p>Скоро с вами свяжусь  для уточнения деталей.</p>
+  </div>
+</div>
+
 
   <!-- Блок с надписью под формой -->
   <div class="place_text">*Осталось 8 мест</div>
@@ -169,23 +224,52 @@
   </div>
 </section>
 
-<!-- === JS: Открытие и закрытие модального окна === -->
-<script>
-function openModal() {
-  document.getElementById("formModal").style.display = "flex";
-}
-function closeModal() {
-  document.getElementById("formModal").style.display = "none";
-}
-window.onclick = function(event) {
-  const modal = document.getElementById("formModal");
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-};
 
+<script>
+  // 1) Открыть/закрыть форму
+  function openModal() {
+    document.getElementById("formModal").style.display = "flex";
+  }
+  function closeModal() {
+    document.getElementById("formModal").style.display = "none";
+  }
+
+  // 2) Открыть/закрыть благодарность
+  function openThankyou() {
+    document.getElementById("thankyouModal").style.display = "flex";
+  }
+  function closeThankyou() {
+    document.getElementById("thankyouModal").style.display = "none";
+  }
+
+  // 3) Закрываем модалки по клику вне контента
+  window.onclick = function(event) {
+    if (event.target === document.getElementById("formModal")) {
+      closeModal();
+    }
+    if (event.target === document.getElementById("thankyouModal")) {
+      closeThankyou();
+    }
+  };
+
+  // 4) После сабмита формы — открываем «Спасибо» вместо формы
+  (function(){
+    const form = document.getElementById('appForm');
+    const iframe = document.getElementById('hidden_iframe');
+
+    form.addEventListener('submit', () => {
+      // ждём, когда iframe получит ответ
+      iframe.addEventListener('load', () => {
+        // 1) закрываем форму-модал
+        closeModal();
+        // 2) открываем благодарственный модал
+        openThankyou();
+      }, { once: true });
+    });
+  })();
 </script>
 
 
+</div> <!-- /#mainContent -->
 </body>
 </html>
