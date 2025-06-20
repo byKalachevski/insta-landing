@@ -7,9 +7,7 @@
 https://bykalachevski.github.io/insta-landing/
 
 
-
 ## 📂 Структура проекта
-
 
 ```text
 / (корень)
@@ -29,10 +27,7 @@ https://bykalachevski.github.io/insta-landing/
 │   └── index.js        — скрипты
 └── index.html          — главный HTML-файл
 
-
-
 ## 🎨 Технологии
-
 * HTML5
 * CSS3 (Flexbox, медиазапросы)
 * JavaScript (Vanilla JS)
