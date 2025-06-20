@@ -109,6 +109,24 @@ body {
     padding: 40px 10px;                        /* Меньше отступы */
   }
 }
+@media (max-width: 768px) {
+  /* Ставит картинку и текст друг под другом и центрирует их */
+  .promo__content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Убираем все margin-left и центрируем текстовые блоки */
+  .promo__text,
+  .title,
+  .title_copyright,
+  .title_result,
+  .title_end {
+    margin: 0 auto;       /* обнуляем левый отступ и ставим auto по бокам */
+    text-align: center;   /* центрируем сам текст */
+    max-width: 90%;       /* при желании можно чуть сузить, чтобы не было слишком широкого растягивания */
+  }
+}
 
 
 
