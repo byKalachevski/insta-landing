@@ -485,8 +485,8 @@ body {
   color: #fff;
   margin-bottom: 16px;
   border-bottom: 2px solid #f80292;
-  text-indent: 350px;
-  
+  text-indent: 0;
+  text-align: center;
 }
 
 .faq-item {
@@ -537,13 +537,16 @@ body {
 
 /* Адаптация под мобильные */
 @media (max-width: 768px) {
-  .faq {
-    max-width: 100%;           /* на всю ширину экрана */
-    margin: 0;                 /* сбрасываем все внешние отступы */
-    padding: 0 10px 60px;      /* чуть внутрь, чтобы не впритык к краям */
+  .faq h2 {
+    font-size: 28px;
+    /* на мобилках тоже центрируем */
+    text-indent: 0;
+    text-align: center;
+    padding-bottom: 8px;
   }
   .faq h2 {
     font-size: 28px;           /* чуть поменьше заголовок */
+    
   }
   .faq-item summary {
     font-size: 16px;           /* уменьшаем размер вопроса */
