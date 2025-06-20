@@ -1,16 +1,11 @@
 # Fitness & Health Landing Page
+This is a simple one-page website dedicated to fitness, weight loss, and a healthy lifestyle. The project is built using HTML, CSS, and JavaScript and features responsive design for optimal display on both desktop and mobile devices.
 
-Это простой одностраничный веб-сайт, посвящённый фитнесу, похудению и здоровому образу жизни. Проект разработан с использованием HTML, CSS и JavaScript и содержит адаптивную верстку для корректного отображения на десктопе и мобильных устройствах.
-
-Сайт доступен по адресу GitHub Pages:
+The site is available via GitHub Pages at:
 
 https://bykalachevski.github.io/insta-landing/
 
-
-## 📂 Структура проекта
-
 ```text
-/ (корень)
 ├── css/
 │   └── style.css       
 ├── fonts/              
@@ -27,7 +22,6 @@ https://bykalachevski.github.io/insta-landing/
 │   └── index.js        
 └── index.html          
 
-## 🎨 Технологии
 * HTML5
 * CSS3 (Flexbox, медиазапросы)
 * JavaScript (Vanilla JS)
