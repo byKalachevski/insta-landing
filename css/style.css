@@ -237,9 +237,6 @@ body {
   margin-left: 50px; /* можете подкорректировать число по вкусу */
 }
 
-
-
-
 /* === БЛОК "УЗНАТЬ БОЛЬШЕ" (текст + иконка) === */
 .more {
   display: flex;                                  /* Flex-контейнер */
@@ -430,5 +427,114 @@ body {
 
   .title_inc {
     font-size: 36px;            /* Уменьшаем главный заголовок */
+  }
+}
+
+
+*/* === Отступы для ответов в FAQ === */
+.faq-item p,
+.faq-item ol {
+  /* отступы внутри рамки: 20px слева и справа */
+  padding-left: 20px;
+  padding-right: 20px;
+
+  /* доп. отступы сверху/снизу для читаемости */
+  margin: 8px 0 16px;
+
+  /* чтобы padding учитывался внутри ширины элемента */
+  box-sizing: border-box;
+
+  /* перенос длинных слов, чтобы не вылазили за рамки */
+  word-wrap: break-word;
+}
+
+/* Нумерованный список: номера внутри отступа */
+.faq-item ol {
+  list-style-position: inside;
+  font-size: 24px;
+}
+
+
+/* === FAQ === */
+.faq {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
+.faq h2 {
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #f80292;
+  text-indent: 350px;
+  
+}
+
+.faq-item {
+  border-bottom: 1px solid #f80292;
+  margin-bottom: 8px;
+  padding: 12px 0;
+}
+
+/* Убираем стрелку браузера */
+.faq-item summary {
+  list-style: none;
+  position: relative;
+  cursor: pointer;
+  font-size: 25px;
+  color: #fff;
+  outline: none;
+}
+
+/* Убираем дефолтный маркер */
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Плюс справа */
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 24px;
+  color: #f80292;
+  line-height: 1;
+}
+
+/* Крестик, когда раскрыто */
+.faq-item[open] summary::after {
+  content: "×";
+}
+
+/* Параграф-ответ */
+.faq-item p {
+  margin-top: 8px;
+  color: #ccc;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+
+/* Адаптация под мобильные */
+@media (max-width: 768px) {
+  .faq {
+    max-width: 100%;           /* на всю ширину экрана */
+    margin: 0;                 /* сбрасываем все внешние отступы */
+    padding: 0 10px 60px;      /* чуть внутрь, чтобы не впритык к краям */
+  }
+  .faq h2 {
+    font-size: 28px;           /* чуть поменьше заголовок */
+  }
+  .faq-item summary {
+    font-size: 16px;           /* уменьшаем размер вопроса */
+  }
+  .faq-item p {
+    font-size: 14px;           /* и размер ответа */
+    line-height: 1.4;
+  }
+  .faq-item summary::after {
+    right: 10px;               /* ближе к краю */
   }
 }
