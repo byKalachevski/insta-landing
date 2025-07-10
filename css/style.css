@@ -75,13 +75,20 @@ body {
 /* === ЗАВЕРШАЮЩИЙ ТЕКСТ === */
 .title_end {
   font-size: 21px;                             /* Размер текста */
-  background-color: rgba(0, 0, 0, 0.5);        /* Полупрозрачный чёрный фон */
+  background-color: rgba(0, 0, 0, 0.5);      /* Полупрозрачный чёрный фон */
   padding: 12px 16px;                          /* Внутренние отступы */
   border-radius: 8px;                          /* Скруглённые углы */
-  color: white;                                /* Цвет текста */
-  max-width: 600px;                            /* Максимальная ширина */
-  margin-left: 70px;                           /* Сдвиг вправо */
+  color: white;                              /* Цвет текста */
+  margin: 0 auto;                              /* Центрирует блок */
+  text-align: center;                          /* Центрирует текст внутри блока */
 }
+
+.nowrap-center {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
 
 /* === МЕДИАЗАПРОС ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (ширина до 768px) === */
 @media (max-width: 768px) {
